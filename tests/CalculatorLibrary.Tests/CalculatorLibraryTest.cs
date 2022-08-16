@@ -1,5 +1,6 @@
 namespace CalculatorLibrary.Tests
 {
+    [Collection("CalculatorAppTests")]
     public class CalculatorLibraryTest
     {
         [Fact]
