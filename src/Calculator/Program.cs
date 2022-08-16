@@ -52,19 +52,12 @@ namespace CalculatorProgram
 
                 string op = Console.ReadLine();
 
-                try
+                result = calculator.DoOperation(cleanNum1, cleanNum2, op);
+                if (double.IsNaN(result))
                 {
-                    result = calculator.DoOperation(cleanNum1, cleanNum2, op);
-                    if (double.IsNaN(result))
-                    {
-                        Console.WriteLine("This operation will result in a mathematical error.\n");
-                    }
-                    else Console.WriteLine("Your result: {0:0.##}\n", result);
+                    Console.WriteLine("This operation will result in a mathematical error.\n");
                 }
-                catch (Exception e)
-                {
-                    Console.WriteLine("Oh no! An exception occurred trying to do the math.\n - Details: " + e.Message);
-                }
+                else Console.WriteLine("Your result: {0:0.##}\n", result);
 
                 Console.WriteLine("------------------------\n");
 
