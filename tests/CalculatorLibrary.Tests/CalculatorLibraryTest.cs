@@ -80,23 +80,14 @@ namespace CalculatorLibrary.Tests
             Assert.Equal(Double.NaN, actual);
         }
 
-        [Fact]
-        public void ShouldNotDoOperation1()
+        [Theory]
+        [InlineData("")]
+        [InlineData("as")]
+        public void ShouldNotDoOperation1(string operation)
         {
             var calculator = new Calculator();
 
-            var actual = calculator.DoOperation(5, 7, "");
-            calculator.Finish();
-
-            Assert.Equal(Double.NaN, actual);
-        }
-
-        [Fact]
-        public void ShouldNotDoOperation2()
-        {
-            var calculator = new Calculator();
-
-            var actual = calculator.DoOperation(5, 7, "as");
+            var actual = calculator.DoOperation(5, 7, operation);
             calculator.Finish();
 
             Assert.Equal(Double.NaN, actual);
